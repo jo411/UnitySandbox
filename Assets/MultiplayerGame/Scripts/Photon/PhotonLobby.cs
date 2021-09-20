@@ -30,6 +30,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;
         battleButton.SetActive(true);
     }
 
@@ -43,11 +44,6 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     {
         Debug.LogError("Failed to create room: " + message);
         CreateRoom();
-    }
-
-    public override void OnJoinedRoom()
-    {
-        Debug.Log("Player joined room");
     }
 
     public void OnBattleButtonClicked()
